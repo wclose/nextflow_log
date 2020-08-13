@@ -45,7 +45,7 @@ nxf_mktemp() {
 
 on_exit() {
     exit_status=${nxf_main_ret:=$?}
-    printf $exit_status > /analysis/nextflow_test/work/65/dbfd176a49d056ddf94d2b805e0b1b/.exitcode
+    printf $exit_status > /analysis/nextflow_test/work/af/80ee2c17ac72c682b092ccc57d692d/.exitcode
     set +u
     [[ "$tee1" ]] && kill $tee1 2>/dev/null
     [[ "$tee2" ]] && kill $tee2 2>/dev/null
@@ -59,7 +59,7 @@ on_term() {
 }
 
 nxf_launch() {
-    /bin/bash -ue /analysis/nextflow_test/work/65/dbfd176a49d056ddf94d2b805e0b1b/.command.sh
+    /bin/bash -ue /analysis/nextflow_test/work/af/80ee2c17ac72c682b092ccc57d692d/.command.sh
 }
 
 nxf_stage() {
@@ -78,7 +78,7 @@ nxf_main() {
     [[ "${NXF_CHDIR:-}" ]] && cd "$NXF_CHDIR"
     NXF_SCRATCH=''
     [[ $NXF_DEBUG > 0 ]] && nxf_env
-    touch /analysis/nextflow_test/work/65/dbfd176a49d056ddf94d2b805e0b1b/.command.begin
+    touch /analysis/nextflow_test/work/af/80ee2c17ac72c682b092ccc57d692d/.command.begin
     set +u
     set -u
     export PATH="/analysis/nextflow_test/bin:$PATH"

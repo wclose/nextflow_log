@@ -10,6 +10,12 @@ process exampleRScript {
   
 }
 
-
-
-
+process exampleBashScript {
+  echo true
+  
+  script:
+  """
+  example.sh
+  """
+  
+}
