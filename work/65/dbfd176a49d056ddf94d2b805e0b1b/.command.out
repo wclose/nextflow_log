@@ -1,0 +1,47 @@
+
+rd.csv> ## using count.fields to handle unknown maximum number of fields
+rd.csv> ## when fill = TRUE
+rd.csv> test1 <- c(1:5, "6,7", "8,9,10")
+
+rd.csv> tf <- tempfile()
+
+rd.csv> writeLines(test1, tf)
+
+rd.csv> read.csv(tf, fill = TRUE) # 1 column
+  X1
+1  2
+2  3
+3  4
+4  5
+5  6
+6  7
+7  8
+8  9
+9 10
+
+rd.csv> ncol <- max(count.fields(tf, sep = ","))
+
+rd.csv> read.csv(tf, fill = TRUE, header = FALSE,
+rd.csv+          col.names = paste0("V", seq_len(ncol)))
+  V1 V2 V3
+1  1 NA NA
+2  2 NA NA
+3  3 NA NA
+4  4 NA NA
+5  5 NA NA
+6  6  7 NA
+7  8  9 10
+
+rd.csv> unlink(tf)
+
+rd.csv> ## "Inline" data set, using text=
+rd.csv> ## Notice that leading and trailing empty lines are auto-trimmed
+rd.csv> 
+rd.csv> read.table(header = TRUE, text = "
+rd.csv+ a b
+rd.csv+ 1 2
+rd.csv+ 3 4
+rd.csv+ ")
+  a b
+1 1 2
+2 3 4
